@@ -230,3 +230,6 @@ button.ghost:hover { background: var(--theirs); }
   outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
+.hidden {
+    display: none !important;
+}
