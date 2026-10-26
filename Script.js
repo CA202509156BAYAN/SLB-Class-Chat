@@ -87,11 +87,16 @@ signupBtn.addEventListener("click", async () => {
   }
 });
 
-authForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+// INAYOS NA SIGN IN (Gamit na ang signinBtn sa halip na authForm submit)
+signinBtn.addEventListener("click", async () => {
   authError.textContent = "";
   const email = authEmail.value.trim();
   const password = authPassword.value;
+
+  if (!email || !password) {
+    authError.textContent = "Please enter your email and password.";
+    return;
+  }
 
   const { data, error } = await supabaseClient.auth.signInWithPassword({
     email: email,
