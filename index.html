@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class Chat</title>
-  <link rel="stylesheet" href="Style.css">
-  <script src="Script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Chat</title>
+    
+    <!-- 1. SUPABASE CDN (Dapat nauuna ito para mabasa ang 'supabase') -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Pwede mong ilagay dito ang CSS stylesheet mo kung mayroon ka -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="auth-screen" class="auth-container">
-    <div class="auth-card">
-      <h2>Class Chat Login</h2>
-      <form id="auth-form">
-        <label for="auth-email">Email</label>
-        <input type="email" id="auth-email" required placeholder="your.email@example.com">
-        
-        <label for="auth-password">Password</label>
-        <input type="password" id="auth-password" required placeholder="At least 6 characters" minlength="6">
-        
-        <label for="auth-name">Display Name</label>
-        <input type="text" id="auth-name" required placeholder="e.g. Ana, Ben, or Cy" maxlength="24">
-        
-        <div class="auth-actions">
-          <button type="submit" id="signin-btn">Sign In</button>
-          <button type="button" id="signup-btn" class="ghost">Sign Up</button>
-        </div>
-        <p id="auth-error" class="error-text"></p>
-      </form>
+
+    <!-- AUTH SCREEN (Login / Sign Up) -->
+    <div id="auth-screen">
+        <h2>Class Chat Login</h2>
+        <div id="auth-error" style="color: red; margin-bottom: 10px;"></div>
+        <form id="auth-form">
+            <input type="text" id="auth-name" placeholder="Display Name (para sa Sign Up)" /><br><br>
+            <input type="email" id="auth-email" placeholder="Email" required /><br><br>
+            <input type="password" id="auth-password" placeholder="Password" required /><br><br>
+            
+            <button type="button" id="signup-btn">Sign Up</button>
+            <button type="submit" id="signin-btn">Sign In</button>
+        </form>
     </div>
-  </div>
 
-  <main id="chat-screen" class="chat hidden">
-    <header class="chat-header">
-      <h1>Class Chat</h1>
-      <div class="controls">
-        <span id="user-display" style="font-weight: 600; color: var(--mine);"></span>
-        <button id="logout-btn" type="button" class="ghost">Sign Out</button>
-        <button id="clear-btn" type="button" class="ghost">Clear chat</button>
-      </div>
-    </header>
+    <!-- CHAT SCREEN (Nakalabas pagka-login) -->
+    <div id="chat-screen" class="hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span id="user-display">Signed in as: User</span>
+            <button id="logout-btn">Sign Out</button>
+        </div>
+        <hr>
+        
+        <div style="height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+            <ul id="messages" style="list-style: none; padding: 0; margin: 0;">
+                <!-- Dito papasok ang messages -->
+            </ul>
+        </div>
 
-    <ul id="messages" class="messages" aria-live="polite"></ul>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Type a message or /weather City..." style="width: 75%;" required />
+            <button type="submit" id="send-btn">Send</button>
+        </form>
+        <button id="clear-btn" style="margin-top: 10px;">Clear My Messages</button>
+    </div>
 
-    <form id="message-form" class="composer" autocomplete="off">
-      <label for="message-input" class="visually-hidden">Message</label>
-      <input id="message-input" type="text" maxlength="500" required placeholder="Type a message or /weather Manila">
-      <button type="submit">Send</button>
-    </form>
-  </main>
-
-  <div style="font-size: 0.8rem; color: #5d6f7c; margin-top: 8px; text-align: center;">
-    Bayan, Sean Lawrence I. - LFCA211M240
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- 2. ANG IYONG SCRIPT.JS (Dapat huli itong binabasa) -->
+    <script src="Script.js"></script>
 </body>
 </html>
