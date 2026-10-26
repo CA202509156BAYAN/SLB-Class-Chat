@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Chat</title>
     
-    <!-- 1. SUPABASE CDN (Dapat nauuna ito para mabasa ang 'supabase') -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Pwede mong ilagay dito ang CSS stylesheet mo kung mayroon ka -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .hidden {
+            display: none !important;
+        }
+    </style>
 </head>
-<body>
 
-    <!-- AUTH SCREEN (Login / Sign Up) -->
     <div id="auth-screen">
         <h2>Class Chat Login</h2>
         <div id="auth-error" style="color: red; margin-bottom: 10px;"></div>
