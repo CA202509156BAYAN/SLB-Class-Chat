@@ -87,11 +87,15 @@ signupBtn.addEventListener("click", async () => {
   }
 });
 
-authForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+signinBtn.addEventListener("click", async () => {
   authError.textContent = "";
   const email = authEmail.value.trim();
   const password = authPassword.value;
+
+  if (!email || !password) {
+    authError.textContent = "Please enter your email and password.";
+    return;
+  }
 
   const { data, error } = await supabaseClient.auth.signInWithPassword({
     email: email,
@@ -104,7 +108,6 @@ authForm.addEventListener("submit", async (e) => {
     checkUserSession();
   }
 });
-
 logoutBtn.addEventListener("click", async () => {
   await supabaseClient.auth.signOut();
   currentUser = null;
