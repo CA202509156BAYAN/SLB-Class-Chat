@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Chat</title>
     
-    <!-- Supabase CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- DIREKTANG CSS PARA SA EKSAKTONG FORMAT -->
     <style>
         :root {
             --page: #e4eaef;
@@ -92,7 +90,6 @@
             font-weight: 600;
         }
 
-        /* Sign In Button (Filled Primary) */
         #signin-btn {
             background: var(--mine);
             color: #fff;
@@ -100,7 +97,6 @@
         }
         #signin-btn:hover { background: #0b4957; }
 
-        /* Sign Up Button (Ghost/Outline) */
         #signup-btn {
             background: transparent;
             color: var(--ink);
@@ -242,7 +238,6 @@
 </head>
 <body>
 
-    <!-- AUTH SCREEN -->
     <div id="auth-screen" class="auth-container">
         <div class="auth-card">
             <h2>Class Chat Login</h2>
@@ -270,7 +265,6 @@
         </div>
     </div>
 
-    <!-- CHAT SCREEN -->
     <div id="chat-screen" class="chat hidden">
         <header class="chat-header">
             <h1>Class Chat</h1>
@@ -281,7 +275,6 @@
         </header>
 
         <ul id="messages" class="messages">
-            <!-- Dito papasok ang mga mensahe -->
         </ul>
 
         <form id="message-form" class="composer">
@@ -291,7 +284,6 @@
         </form>
     </div>
 
-    <!-- SCRIPT.JS -->
     <script src="Script.js"></script>
 </body>
 </html>
